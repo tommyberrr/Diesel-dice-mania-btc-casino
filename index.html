@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BTC Casino</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{background:#111;color:#fff;font-family:Arial;text-align:center}
+.box{background:#222;margin:40px;padding:20px;border-radius:20px}
+button{padding:15px;font-size:20px}
+input{padding:10px;width:80%}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h1>🎰 BTC Casino</h1>
+
+<h3>Skicka 0.0001 BTC till:</h3>
+<b>bc1q2f387kzzrsnhus8ru9tvwpp5e9fcvghdmw2wxa</b>
+
+<br><br>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:MIN_BTC_ADRESS?amount=0.0001">
+<br>Skanna QR och betala
+
+<br><br>
+<input id="txid" placeholder="Klistra TXID här">
+<br><br>
+<button onclick="play()">Spela</button>
+
+<h2 id="result"></h2>
+</div>
+
+<script>
+function roll(seed){
+ let h=0;
+ for(let i=0;i<seed.length;i++){
+  h=seed.charCodeAt(i)+((h<<5)-h);
+ }
+ return Math.abs(h%100)+1;
+}
+
+function play(){
+ let tx=document.getElementById("txid").value;
+ if(tx.length<5){alert("Klistra TXID");return;}
+ let r=roll(tx+Date.now());
+ document.getElementById("result").innerHTML=
+ r>50?"VINST 🎉 Nummer "+r:"Förlust 😢 Nummer "+r;
+}
+</script>
+
+</body>
+</html>
