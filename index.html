@@ -1,3 +1,15 @@
+<head>
+<title>BTC Casino</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +32,7 @@ input{padding:10px;width:80%}
 
 <br><br>
 
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:MIN_BTC_ADRESS?amount=0.0001">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:bc1q2f387kzzrsnhus8ru9tvwpp5e9fcvghdmw2wxa?amount=0.0001">
 <br>Skanna QR och betala
 
 <br><br>
